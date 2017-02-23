@@ -10,12 +10,28 @@ class MedicalRecord {
 public:
 	// default constructor
 	MedicalRecord() {
-		// TO BE COMPLETED
+		// creates record with nothing in it
+
+		Baby * record;
+		record = new Baby[0];
+	}
+
+	//made another ctor with filename since default ctors cant take parameters 
+	MedicalRecord(string filename) {
+
+		fstream file;
+		file.open(filename, ios::in);
+
+		Baby * record;
+		int size = numberOfBirths();
+
+		record = new Baby[size];
 	}
 
 	// destructor
 	~MedicalRecord() {
-		// TO BE COMPLETED
+		// deletes array of the medical records
+		delete[] record;
 	}
 
 	// Load information from a text file with the given filename.
@@ -44,7 +60,23 @@ public:
 
 	// return the number of baby records loaded from the text file
 	int numberOfBirths() {
-		return -1; // TO BE COMPLETED
+		// return -1; // TO BE COMPLETED
+		
+		int numOfBirths = 0;
+		//opens file, i think???
+		string filenameagain;
+		fstream file(filenameagain);
+		// while the line isnt empty, the num of births is tallied and you can also use this number for the array size in the ctor 
+		string str;
+		while (getline( filenameagain, str))
+		{
+			if (!str.empty())
+				numOfBirths++;
+		}
+		//return final tally of lines
+		return numOfBirths;
+
+		
 	}
 
 	// return the number of babies who had birth weight < 2500 grams
@@ -60,10 +92,19 @@ public:
 private:
 	// update the data structure with information contained in Baby object
 	void addEntry(Baby b) {
-		// TO BE COMPLETED
+		
+		newEntry = b;
+		string filename;
+		
+		// read file (use getline)
+		getline(filename, newEntry, ' ')
+
+	
 	}
 
 	// Add private member variables for your data structure along with any 
 	// other variables required to implement the public member functions
 
+	Baby newEntry; //used in addEntry()
+	
 };
