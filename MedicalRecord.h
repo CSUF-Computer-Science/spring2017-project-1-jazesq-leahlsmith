@@ -8,6 +8,8 @@ using namespace std;
 
 class MedicalRecord {
 public:
+
+	// this is a test 2/23
 	// default constructor
 	MedicalRecord() {
 		// TO BE COMPLETED
@@ -27,7 +29,7 @@ public:
 			string name;
 			int weight;
 			while (myfile >> name >> weight) {
-				// cout << name << " " << weight << endl;
+				 cout << name << " " << weight << endl;
 				Baby b(name, weight);
 				addEntry(b);
 			}
