@@ -10,12 +10,22 @@ class MedicalRecord {
 public:
 	// default constructor
 	MedicalRecord() {
-		// TO BE COMPLETED
+		 
+		record = new Baby[1000000]; 
+		
+		for (int i; i < 1000000; i++) // for loop that initializes array elements to empty
+		{
+			record[i] = Baby(NULL, 0);
+		}
+		//array size based on the assumption
+		// "record" variable is found below in private section
+
 	}
 
 	// destructor
 	~MedicalRecord() {
-		// TO BE COMPLETED
+		// deletes array of the medical records
+		delete[] record;
 	}
 
 	// Load information from a text file with the given filename.
@@ -44,7 +54,15 @@ public:
 
 	// return the number of baby records loaded from the text file
 	int numberOfBirths() {
-		return -1; // TO BE COMPLETED
+		// return -1; // TO BE COMPLETED
+		
+		int numOfBirths = 0;
+		
+		// insert loop that counts non-empty array spaces [Baby(NULL, 0) and increments numOfBirths
+	
+
+		return numOfBirths;
+		
 	}
 
 	// return the number of babies who had birth weight < 2500 grams
@@ -55,15 +73,26 @@ public:
 	// return the number of babies who have the name contained in string s
 	int numberOfBabiesWithName(string s) {
 		return -1; // TO BE COMPLETED
+
+		//assumption: there are no more than 1000 similar names 
 	}
 
 private:
 	// update the data structure with information contained in Baby object
 	void addEntry(Baby b) {
-		// TO BE COMPLETED
+		
+		newEntry = b;
+		
+		for (int i; i < 1000000; i++) // im not sure if this works, it could be initializing every newEnrty as the same name and weight
+		{
+			record[i] = b;
+		}
 	}
 
 	// Add private member variables for your data structure along with any 
 	// other variables required to implement the public member functions
 
+	Baby newEntry; //used in addEntry()
+	Baby * record; // pointer to array of the entire record of births
+	
 };
