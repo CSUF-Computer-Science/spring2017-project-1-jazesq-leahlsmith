@@ -38,4 +38,6 @@ public:
 private:
 	string name;
 	int weight;
+
+	friend class MedicalRecord;
 };

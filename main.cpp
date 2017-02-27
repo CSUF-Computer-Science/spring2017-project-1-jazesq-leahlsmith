@@ -32,13 +32,13 @@ int main() {
 				cout << "Number of births: " << nBirths << endl;
 				assert(nBirths == 10);
 
-				int nEmma = MR.numberOfBabiesWithName("sophia");
-				cout << "Number of babies with name Sophia: " << nEmma << endl;
-				//assert(nEmma == 2);
+				int nEmma = MR.numberOfBabiesWithName("Emma");
+				cout << "Number of babies with name Emma: " << nEmma << endl;
+				assert(nEmma == 2);
 
 					int nLow = MR.numberOfBabiesWithLowBirthWeight();
 					cout << "Number of babies with low birth weight: " << nLow << endl;
-					//assert(nLow == 2);
+					assert(nLow == 2);
 
 					//string mostPopularName = MR.mostPopularName();
 					//cout << "Most popular baby name: " << mostPopularName << endl;
