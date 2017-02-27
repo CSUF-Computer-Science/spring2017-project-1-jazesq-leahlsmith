@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <string>
 #include <stdexcept>
 
@@ -8,12 +9,14 @@ using namespace std;
 
 class MedicalRecord {
 public:
+
+	// this is a test 2/23
 	// default constructor
 	MedicalRecord() {
 		 
-		record = new Baby[1000000]; 
+		record = new Baby[size]; 
 		
-		for (int i; i < 1000000; i++) // for loop that initializes array elements to empty
+		for (int i=0; i < size; i++) // for loop that initializes array elements to empty
 		{
 			record[i] = Baby(NULL, 0);
 		}
@@ -29,22 +32,23 @@ public:
 	}
 
 	// Load information from a text file with the given filename.
-	void buildMedicalRecordfromDatafile(string filename) {
-		ifstream myfile(filename);
+	void buildMedicalRecordfromDatafile(string baby_data_small) {
+		ifstream myfile;
+		myfile.open ("baby_data_small.txt");
 
 		if (myfile.is_open()) {
-			cout << "Successfully opened file " << filename << endl;
+			cout << "Successfully opened file " << baby_data_small << endl;
 			string name;
 			int weight;
 			while (myfile >> name >> weight) {
-				// cout << name << " " << weight << endl;
+				 cout << name << " " << weight << endl;
 				Baby b(name, weight);
 				addEntry(b);
 			}
 			myfile.close();
 		}
 		else
-			throw invalid_argument("Could not open file " + filename);
+			throw invalid_argument("Could not open file " + baby_data_small);
 	}
 
 	// return the most frequently appearing name in the text file
@@ -54,7 +58,7 @@ public:
 
 	// return the number of baby records loaded from the text file
 	int numberOfBirths() {
-		// return -1; // TO BE COMPLETED
+		
 		
 		int numOfBirths = 0;
 		
@@ -67,6 +71,7 @@ public:
 
 	// return the number of babies who had birth weight < 2500 grams
 	int numberOfBabiesWithLowBirthWeight() {
+
 		return -1; // TO BE COMPLETED
 	}
 
@@ -79,13 +84,13 @@ public:
 
 private:
 	// update the data structure with information contained in Baby object
-	void addEntry(Baby b) {
+	void addEntry(Baby a) {
 		
-		newEntry = b;
+		newEntry = a;
 		
-		for (int i; i < 1000000; i++) // im not sure if this works, it could be initializing every newEnrty as the same name and weight
+		for (int i=0; i < size; i++) // im not sure if this works, it could be initializing every newEnrty as the same name and weight
 		{
-			record[i] = b;
+			record[i] = newEntry;
 		}
 	}
 
@@ -94,5 +99,6 @@ private:
 
 	Baby newEntry; //used in addEntry()
 	Baby * record; // pointer to array of the entire record of births
+	const int size = 1000000;
 	
 };
