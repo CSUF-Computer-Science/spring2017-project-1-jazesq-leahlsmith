@@ -10,6 +10,7 @@ class MedicalRecord {
 public:
 	// default constructor
 	MedicalRecord() {
+<<<<<<< HEAD
 		
 		record = new Baby[SIZE];
 
@@ -18,10 +19,14 @@ public:
 			record[i] = Baby("", 0);
 
 		}
+=======
+		// TO BE COMPLETED
+>>>>>>> origin/project1LATEST_jazesq_leahlsmith
 	}
 
 	// destructor
 	~MedicalRecord() {
+<<<<<<< HEAD
 		
 		delete[] record;
 	}
@@ -32,6 +37,17 @@ public:
 
 		if (myfile.is_open()) {
 			cout << "Successfully opened file " << filename << endl;
+=======
+		// TO BE COMPLETED
+	}
+
+	// Load information from a text file with the given filename.
+	void buildMedicalRecordfromDatafile(string baby_data_small) {
+		ifstream myfile("baby_data_small.txt");
+
+		if (myfile.is_open()) {
+			cout << "Successfully opened file " << baby_data_small << endl;
+>>>>>>> origin/project1LATEST_jazesq_leahlsmith
 			string name;
 			int weight;
 			while (myfile >> name >> weight) {
@@ -42,7 +58,11 @@ public:
 			myfile.close();
 		}
 		else
+<<<<<<< HEAD
 			throw invalid_argument("Could not open file " + filename);
+=======
+			throw invalid_argument("Could not open file " + baby_data_small);
+>>>>>>> origin/project1LATEST_jazesq_leahlsmith
 	}
 
 	// return the most frequently appearing name in the text file
@@ -68,6 +88,7 @@ public:
 private:
 	// update the data structure with information contained in Baby object
 	void addEntry(Baby b) {
+<<<<<<< HEAD
 		
 		newEntry = b;
 
@@ -87,5 +108,12 @@ private:
 	Baby * record; //ptr in array of the entire fcn
 
 	const int SIZE = 1000000; // used for arrazy size
+=======
+		// TO BE COMPLETED
+	}
+
+	// Add private member variables for your data structure along with any 
+	// other variables required to implement the public member functions
+>>>>>>> origin/project1LATEST_jazesq_leahlsmith
 
 };
