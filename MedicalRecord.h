@@ -14,11 +14,13 @@ public:
 
 		record = new Baby[SIZE];
 
-		for (int i = 0; i < SIZE; i++)
-		{
-			record[i] = Baby("", 0);
+		numOfEntries = 0;
 
-		}
+//		for (int i = 0; i < SIZE; i++)
+//		{
+//			record[i] = Baby("", 0);
+//
+//		}
 		// TO BE COMPLETED
 	}
 
@@ -78,7 +80,7 @@ public:
 		int numWithS = 0;
 		for (int i = 0; i < SIZE; i++)
 		{
-			if (record[i].getName() == s)
+			if (record[i].name == s)
 			{
 				numWithS++;
 			}
@@ -90,12 +92,13 @@ private:
 	// update the data structure with information contained in Baby object
 	void addEntry(Baby b) {
 
-		newEntry = b;
+		//newEntry = b;
 
-		for (int i = 0; i < SIZE; i++)
-		{
-			record[i] = newEntry;
-		}
+//		for (int i = 0; i < SIZE; i++)
+//		{
+			record[numOfEntries].name = b.name;
+			record[numOfEntries].weight = b.weight;
+//		}
 		numOfEntries++;
 	}
 
@@ -103,7 +106,7 @@ private:
 	Baby * record; //ptr in array of the entire fcn
 
 	const int SIZE = 1000000; // used for arrazy size
-	int numOfEntries=0; // for birth count 
+	int numOfEntries; // for birth count 
 
 	// Add private member variables for your data structure along with any 
 	// other variables required to implement the public member functions
