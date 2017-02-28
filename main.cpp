@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 #include "MedicalRecord.h"
 #include "Baby.h"
@@ -22,49 +23,49 @@ int main() {
 
 
 
-	//		}
+			//}
 
-			{   // test full code with a small data file
-				MedicalRecord MR;
-				MR.buildMedicalRecordfromDatafile("baby_data_small.txt"); // build a medical record from the file of baby names and weights\
+			//{   // test full code with a small data file
+			//	MedicalRecord MR;
+			//	MR.buildMedicalRecordfromDatafile("baby_data_small.txt"); // build a medical record from the file of baby names and weights\
 
-				int nBirths = MR.numberOfBirths();
-				cout << "Number of births: " << nBirths << endl;
-				assert(nBirths == 10);
+			//	int nBirths = MR.numberOfBirths();
+			//	cout << "Number of births: " << nBirths << endl;
+			//	assert(nBirths == 10);
 
-				int nEmma = MR.numberOfBabiesWithName("Emma");
-				cout << "Number of babies with name Emma: " << nEmma << endl;
-				assert(nEmma == 2);
+			//	int nEmma = MR.numberOfBabiesWithName("Emma");
+			//	cout << "Number of babies with name Emma: " << nEmma << endl;
+			//	assert(nEmma == 2);
 
+			//		int nLow = MR.numberOfBabiesWithLowBirthWeight();
+			//		cout << "Number of babies with low birth weight: " << nLow << endl;
+			//		assert(nLow == 2);
+
+			//		string mostPopularName = MR.mostPopularName();
+			//		cout << "Most popular baby name: " << mostPopularName << endl;
+			//		assert (mostPopularName == "Sophia");
+			//	}
+		
+			{   // test full code with a large data file
+					MedicalRecord MR;
+					MR.buildMedicalRecordfromDatafile("baby_data_large.txt"); // build a medical record from the file of baby names and weights\
+		
+					int nBirths = MR.numberOfBirths();
+					cout << "Number of births: " << nBirths << endl;
+					assert (nBirths == 199604);
+		
+					int nEva = MR.numberOfBabiesWithName("Eva");
+					cout << "Number of babies with name Eva: " << nEva << endl;
+					assert (nEva == 566);
+		
 					int nLow = MR.numberOfBabiesWithLowBirthWeight();
 					cout << "Number of babies with low birth weight: " << nLow << endl;
-					assert(nLow == 2);
-
-					//string mostPopularName = MR.mostPopularName();
-					//cout << "Most popular baby name: " << mostPopularName << endl;
-					//assert (mostPopularName == "Sophia");
-				}
+					assert (nLow == 15980);
 		
-		//	{   // test full code with a large data file
-		//			MedicalRecord MR;
-		//			MR.buildMedicalRecordfromDatafile("baby_data_large.txt"); // build a medical record from the file of baby names and weights\
-		//
-		//			int nBirths = MR.numberOfBirths();
-		//			cout << "Number of births: " << nBirths << endl;
-		//			assert (nBirths == 199604);
-		//
-		//			int nEva = MR.numberOfBabiesWithName("Eva");
-		//			cout << "Number of babies with name Eva: " << nEva << endl;
-		//			assert (nEva == 566);
-		//
-		//			int nLow = MR.numberOfBabiesWithLowBirthWeight();
-		//			cout << "Number of babies with low birth weight: " << nLow << endl;
-		//			assert (nLow == 15980);
-		//
-		//			string mostPopularName = MR.mostPopularName();
-		//			cout << "Most popular baby name: " << mostPopularName << endl;
-		//			assert (mostPopularName == "Emma");
-		//	}
+					string mostPopularName = MR.mostPopularName();
+					cout << "Most popular baby name: " << mostPopularName << endl;
+					//assert (mostPopularName == "Emma");
+			}
 		}
 	catch (exception &e) {
 		cout << e.what() << endl;

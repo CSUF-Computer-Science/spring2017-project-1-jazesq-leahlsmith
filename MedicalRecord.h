@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 #include <stdexcept>
-
 #include "Baby.h"
 
 using namespace std;
@@ -31,11 +30,11 @@ public:
 	}
 
 	// Load information from a text file with the given filename.
-	void buildMedicalRecordfromDatafile(string baby_data_small) {
-		ifstream myfile("baby_data_small.txt");
+	void buildMedicalRecordfromDatafile(string baby_data_large) {
+		ifstream myfile("baby_data_large.txt");
 
 		if (myfile.is_open()) {
-			cout << "Successfully opened file " << baby_data_small << endl;
+			cout << "Successfully opened file " << baby_data_large << endl;
 			string name;
 			int weight;
 			while (myfile >> name >> weight) {
@@ -47,14 +46,56 @@ public:
 			myfile.close();
 		}
 		else
-			throw invalid_argument("Could not open file " + baby_data_small);
+			throw invalid_argument("Could not open file " + baby_data_large);
 
 	}
 
 	// return the most frequently appearing name in the text file
 	string mostPopularName() {
-		return "COMPLETE ME"; // TO BE COMPLETED
+		string popularName;
+		/*bool swap;
+		string temp;
+		do {
+			swap = false;
+			for (int i=0; i <(SIZE-1); i++)
+				if (record[i].name > record[(i + 1)].name)
+				{
+					temp = record[i].name;
+					record[i].name = record[i + 1].name;
+					record[i + 1].name = temp;
+					swap = true;
+				}
+
+		}while (swap==false);*/
+
+
+		//string tempName;
+		//string popularName = "";
+		//int tempCount = 0;
+		//int popularCount = 0;
+		//int i = 0;
+		//do {
+		//	tempName = record[i].name;
+
+
+		//	if ((popularCount == 0) || ((tempName==popularName)))
+		//	{
+		//		tempCount = numberOfBabiesWithName(tempName);
+
+		//		if (tempCount > popularCount)
+		//		{
+		//			popularCount = tempCount;
+		//			popularName = tempName;
+		//		}
+		//		i++;
+		//	}
+		//	
+		//	
+		//} while (i < numOfEntries);
+
+		return popularName = "";
 	}
+		
 
 	// return the number of baby records loaded from the text file
 	int numberOfBirths() {
