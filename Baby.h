@@ -8,20 +8,11 @@ class Baby {
 public:
 	Baby::Baby():name(""),weight(0){  // default constructor
 
-		/*name = "";
-		weight = 0;*/
-
 	};
 
 	Baby::Baby(string s, int w) : name(s), weight(w)
 	{
-		// constructor
-		/*while ((name == "") && (weight == 0))
-		{
-			name = s;
-			weight = w;
 
-		}*/
 	}
 
 	// a "getter" method
