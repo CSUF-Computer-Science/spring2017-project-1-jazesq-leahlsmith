@@ -64,7 +64,7 @@ int main() {
 		
 					string mostPopularName = MR.mostPopularName();
 					cout << "Most popular baby name: " << mostPopularName << endl;
-					//assert (mostPopularName == "Emma");
+					assert (mostPopularName == "Emma");
 			}
 		}
 	catch (exception &e) {
