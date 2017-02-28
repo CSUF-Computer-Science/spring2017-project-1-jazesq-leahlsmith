@@ -24,7 +24,7 @@ int main() {
 
 		}
 
-			{   test full code with a small data file
+			{   //test full code with a small data file
 			MedicalRecord MR;
 			MR.buildMedicalRecordfromDatafile("baby_data_small.txt"); // build a medical record from the file of baby names and weights\
 
@@ -45,7 +45,7 @@ int main() {
 			assert (mostPopularName == "Sophia");
 			}
 		
-			{   test full code with a large data file
+			{   //test full code with a large data file
 			MedicalRecord MR;
 			MR.buildMedicalRecordfromDatafile("baby_data_large.txt"); // build a medical record from the file of baby names and weights\
 		
