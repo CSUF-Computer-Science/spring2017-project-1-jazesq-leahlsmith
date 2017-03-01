@@ -55,7 +55,6 @@ public:
 		}
 
 		int nameTotal = 0;
-
 		for (int i = 0; i < numOfEntries; i++)
 		{
 			for (int j = 0; j < 1000; j++)
@@ -74,7 +73,7 @@ public:
 		}
 		int nameIndex;
 		int popularCount = 0;
-		for (int i = 0; i < 1000; i++)
+		for (int i = 0; i < nameTotal; i++)
 		{
 			int tempCount = numberOfBabiesWithName(nameArray[i]);
 
