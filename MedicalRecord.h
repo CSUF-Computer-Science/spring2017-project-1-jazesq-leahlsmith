@@ -24,7 +24,7 @@ public:
 	}
 
 	// Load information from a text file with the given filename.
-	void buildMedicalRecordfromDatafile(string filename) {
+	void buildMedicalRecordfromDatafile(filename) {
 		ifstream myfile(filename);
 
 		if (myfile.is_open()) {
@@ -35,7 +35,7 @@ public:
 				// cout << name << " " << weight << endl;
 				Baby b(name, weight);
 				addEntry(b);
-				
+
 			}
 			myfile.close();
 		}
@@ -45,8 +45,8 @@ public:
 	}
 
 	// return the most frequently appearing name in the text file
-	string mostPopularName()
-	{
+	string mostPopularName() {
+
 
 		string nameArray[1000];
 		for (int i = 0; i < 1000; i++)
@@ -74,7 +74,7 @@ public:
 		}
 		int nameIndex;
 		int popularCount = 0;
-		for (int i =0; i < 1000; i++)
+		for (int i = 0; i < 1000; i++)
 		{
 			int tempCount = numberOfBabiesWithName(nameArray[i]);
 
@@ -86,8 +86,9 @@ public:
 
 		}
 		return nameArray[nameIndex];
-	
 	}
+
+
 		
 
 	// return the number of baby records loaded from the text file
@@ -126,13 +127,10 @@ private:
 	// update the data structure with information contained in Baby object
 	void addEntry(Baby b) {
 
-		//newEntry = b;
-
-//		for (int i = 0; i < SIZE; i++)
-//		{
+	
 			record[numOfEntries].name = b.name;
 			record[numOfEntries].weight = b.weight;
-//		}
+
 		numOfEntries++;
 	}
 
