@@ -24,7 +24,7 @@ public:
 	}
 
 	// Load information from a text file with the given filename.
-	void buildMedicalRecordfromDatafile(filename) {
+	void buildMedicalRecordfromDatafile(string filename) {
 		ifstream myfile(filename);
 
 		if (myfile.is_open()) {
@@ -140,6 +140,5 @@ private:
 	const int SIZE = 1000000; // used for arrazy size
 	int numOfEntries; // for birth count 
 
-	// Add private member variables for your data structure along with any 
-	// other variables required to implement the public member functions
+	
 };
