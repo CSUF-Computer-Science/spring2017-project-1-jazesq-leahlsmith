@@ -69,6 +69,5 @@ int main() {
 	catch (exception &e) {
 		cout << e.what() << endl;
 	}
-	 return 0;
 
 }
