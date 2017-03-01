@@ -15,12 +15,6 @@ public:
 
 		numOfEntries = 0;
 
-//		for (int i = 0; i < SIZE; i++)
-//		{
-//			record[i] = Baby("", 0);
-//
-//		}
-		// TO BE COMPLETED
 	}
 
 	// destructor
@@ -30,11 +24,11 @@ public:
 	}
 
 	// Load information from a text file with the given filename.
-	void buildMedicalRecordfromDatafile(string baby_data_large) {
-		ifstream myfile("baby_data_large.txt");
+	void buildMedicalRecordfromDatafile(string filename) {
+		ifstream myfile(filename);
 
 		if (myfile.is_open()) {
-			cout << "Successfully opened file " << baby_data_large << endl;
+			cout << "Successfully opened file " << filename << endl;
 			string name;
 			int weight;
 			while (myfile >> name >> weight) {
@@ -46,54 +40,53 @@ public:
 			myfile.close();
 		}
 		else
-			throw invalid_argument("Could not open file " + baby_data_large);
+			throw invalid_argument("Could not open file " + filename);
 
 	}
 
 	// return the most frequently appearing name in the text file
-	string mostPopularName() {
-		string popularName;
-		/*bool swap;
-		string temp;
-		do {
-			swap = false;
-			for (int i=0; i <(SIZE-1); i++)
-				if (record[i].name > record[(i + 1)].name)
+	string mostPopularName()
+	{
+
+		string nameArray[1000];
+		for (int i = 0; i < 1000; i++)
+		{
+			nameArray[i] = "";
+		}
+
+		int nameTotal = 0;
+
+		for (int i = 0; i < numOfEntries; i++)
+		{
+			for (int j = 0; j < 1000; j++)
+			{
+				if (record[i].name == nameArray[j])
 				{
-					temp = record[i].name;
-					record[i].name = record[i + 1].name;
-					record[i + 1].name = temp;
-					swap = true;
+					break;
 				}
+				else if (nameArray[j] == "")
+				{
+					nameArray[j] = record[i].getName();
+					nameTotal++;
+					break;
+				}
+			}
+		}
+		int nameIndex;
+		int popularCount = 0;
+		for (int i =0; i < 1000; i++)
+		{
+			int tempCount = numberOfBabiesWithName(nameArray[i]);
 
-		}while (swap==false);*/
+			if (tempCount > popularCount)
+			{
+				nameIndex = i;
+				popularCount = tempCount;
+			}
 
-
-		//string tempName;
-		//string popularName = "";
-		//int tempCount = 0;
-		//int popularCount = 0;
-		//int i = 0;
-		//do {
-		//	tempName = record[i].name;
-
-
-		//	if ((popularCount == 0) || ((tempName==popularName)))
-		//	{
-		//		tempCount = numberOfBabiesWithName(tempName);
-
-		//		if (tempCount > popularCount)
-		//		{
-		//			popularCount = tempCount;
-		//			popularName = tempName;
-		//		}
-		//		i++;
-		//	}
-		//	
-		//	
-		//} while (i < numOfEntries);
-
-		return popularName = "";
+		}
+		return nameArray[nameIndex];
+	
 	}
 		
 
