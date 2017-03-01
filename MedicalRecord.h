@@ -15,12 +15,6 @@ public:
 
 		numOfEntries = 0;
 
-		//		for (int i = 0; i < SIZE; i++)
-		//		{
-		//			record[i] = Baby("", 0);
-		//
-		//		}
-				// TO BE COMPLETED
 	}
 
 	// destructor
@@ -30,11 +24,11 @@ public:
 	}
 
 	// Load information from a text file with the given filename.
-	void buildMedicalRecordfromDatafile(string baby_data_large) {
-		ifstream myfile("baby_data_large.txt");
+	void buildMedicalRecordfromDatafile(filename) {
+		ifstream myfile(filename);
 
 		if (myfile.is_open()) {
-			cout << "Successfully opened file " << baby_data_large << endl;
+			cout << "Successfully opened file " << filename << endl;
 			string name;
 			int weight;
 			while (myfile >> name >> weight) {
@@ -46,7 +40,7 @@ public:
 			myfile.close();
 		}
 		else
-			throw invalid_argument("Could not open file " + baby_data_large);
+			throw invalid_argument("Could not open file " + filename);
 
 	}
 
@@ -133,13 +127,10 @@ private:
 	// update the data structure with information contained in Baby object
 	void addEntry(Baby b) {
 
-		//newEntry = b;
-
-//		for (int i = 0; i < SIZE; i++)
-//		{
+	
 			record[numOfEntries].name = b.name;
 			record[numOfEntries].weight = b.weight;
-//		}
+
 		numOfEntries++;
 	}
 
